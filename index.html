@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2D2D2D;
+            --secondary-color: #737373;
+            --background-color: #ffffff;
+            --hover-color: #f1f1f1;
+            --border-color: #e0e0e0;
+        }
+
+        body.dark-mode {
+            --primary-color: #E4E4E4;
+            --secondary-color: #A0A0A0;
+            --background-color: #1A1A1A;
+            --hover-color: #2D2D2D;
+            --border-color: #333333;
+        }
+
+        body {
+            color: var(--primary-color);
+            background: var(--background-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        /* Hamburger Menu Button */
+.hamburger-menu {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: var(--background-color);
+        width: 100%;
+        border-top: 1px solid var(--border-color);
+        z-index: 999;
+        padding: 1rem 0;
+    }
+
+    .nav-links a {
+        padding: 0.5rem 1rem;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+}
+
+        /* Navigation */
+        nav {
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .nav-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 6rem 1rem 2rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+        
+        .hero-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        /* Section Styles */
+        section {
+            margin: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .skill-card {
+            padding: 1.5rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .skill-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            width: 40px;
+            text-align: center;
+        }
+
+        .skill-content {
+            flex: 1;
+        }
+
+        .skill-card:hover {
+            background: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        /* Blog Posts */
+        .blog-post {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .blog-title {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-excerpt {
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 600px;
+        }
+
+        input, textarea {
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button {
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        /* Video Gallery */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .video-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .video-info {
+            padding: 1rem;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-description {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-color);
+            padding: 2rem 1rem;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+
+        /* Dark Mode Toggle */
+        #dark-mode-toggle {
+            background: none;
+            border: 1px solid var(--border-color);
+            color: var(--primary-color);
+            padding: 0.5rem 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+           
+</style>
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+    <a href="#" class="logo">AYON</a>
+    <button class="hamburger-menu" aria-label="Toggle Navigation">☰</button>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="#contact">Contact</a>
+        <button id="dark-mode-toggle">🌙</button>
+    </div>
+</div>
+
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <img src="/ayon dp.jpg" alt="Your Profile" class="profile-image">
+            <div class="hero-content">
+                <h1 class="hero-title">Abu Tayeb Mohammad Ayon</h1>
+                <p class="hero-subtitle">Computer Science Student. Researcher. Developer.</p>
+                <p>Passionate about creating innovative solutions through technology and research.</p>
+                <div class="hero-contact">
+                    <p><i class="fas fa-envelope"></i> mohammadayon2838@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +880 1620-570-5653</p>
+                    <p><i class="fab fa-linkedin"></i> Mohammad Ayon</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about">
+            <h2 class="section-title">About</h2>
+            <p>I'm a Computer Science & Engineering student at North South University with a strong foundation in research and development. As a Research Assistant at NSU DIAL Lab, I've gained valuable experience in qualitative research and data analysis. My work combines academic excellence with practical implementation, focusing on innovative solutions in machine learning, mobile development, and IoT.</p>
+            
+            <div class="education">
+                <h3>Education</h3>
+                <div class="education-item">
+                    <strong>North South University</strong>
+                    <p>B.Sc. in Computer Science & Engineering (2020 - 2024)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="skill-content">
+                        <h3>Programming Languages</h3>
+                        <p>C++, C, Java, Python, JavaScript, ARMv7 Assembly, Kotlin</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="skill-content">
+                        <h3>Web Technologies</h3>
+                        <p>HTML, CSS, Bootstrap, PHP, Firebase</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="skill-content">
+                        <h3>Databases</h3>
+                        <p>MySQL, Oracle, Microsoft SQL Server</p>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="skill-content">
+                        <h3>Frameworks & Libraries</h3>
+                        <p>JavaFX, NumPy, PyTorch, Flask</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="/api/placeholder/400/320" alt="Skin Cancer Classification" class="project-img">
+                    <div class="project-content">
+                        <h3>Skin Cancer Classification</h3>
+                        <p>Developed a lightweight pruned DCNN with XAI achieving 98.07% accuracy on the HAM10000 dataset. Enhanced speed, efficiency, and interpretability compared to state-of-the-art models.</p>
+                        <div class="project-tags">
+                            <span>PyTorch</span>
+                            <span>Deep Learning</span>
+                            <span>XAI</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/320" alt="Adda Dei" class="project-img">
+                    <div class="project-content">
+                        <h3>Adda Dei</h3>
+                        <p>Android-based social networking application for NSU students featuring real-time chat functionality, Google authentication, and active user status tracking.</p>
+                        <div class="project-tags">
+                            <span>Kotlin</span>
+                            <span>Firebase</span>
+                            <span>Figma</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="/api/placeholder/400/320" alt="Smart Waste Management" class="project-img">
+                    <div class="project-content">
+                        <h3>IoT-Based Smart Waste Management</h3>
+                        <p>Engineered an STM32-based system with environmental sensors for real-time waste level monitoring and OLED display integration.</p>
+                        <div class="project-tags">
+                            <span>IoT</span>
+                            <span>STM32</span>
+                            <span>Embedded Systems</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog">
+            <h2 class="section-title">Blog</h2>
+            <div class="blog-post">
+                <h3 class="blog-title">Research at NSU DIAL Lab</h3>
+                <p class="blog-excerpt">Exploring my experience as a Research Assistant at the Design Inclusion and Access Lab, working on qualitative research and alternative credit scoring systems...</p>
+                <button>Read More</button>
+            </div>
+            <div class="blog-post">
+                <h3 class="blog-title">Deep Learning in Medical Imaging</h3>
+                <p class="blog-excerpt">Discussing the development and implementation of our lightweight DCNN model for skin cancer classification...</p>
+                <button>Read More</button>
+            </div>
+        </section>
+
+        <!-- Video Gallery -->
+        <section id="videos">
+            <h2 class="section-title">Video Gallery</h2>
+            <div class="video-grid">
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Video Title 1</h3>
+                        <p class="video-description">Brief description of the video content</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="YouTube video" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Video Title 2</h3>
+                        <p class="video-description">Brief description of the video content</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/0scLfvS3d_w" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                    </div>
+                    <div class="video-info">
+                        <h3 class="video-title">Video Title 3</h3>
+                        <p class="video-description">Brief description of the video content</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2 class="section-title">Contact</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" rows="4" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Your Name. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('dark-mode-toggle');
+        darkModeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            darkModeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        });
+
+        // Form Submission
+        const form = document.querySelector('.contact-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Add your form submission logic here
+            alert('Message sent! (Demo only)');
+            form.reset();
+        });
+        document.addEventListener("DOMContentLoaded", function () {
+    const image = document.querySelector(".profile-image");
+
+    if (image) {
+        image.style.transition = "transform 0.3s ease";
+
+        image.addEventListener("click", function () {
+            // Check if the image is already enlarged
+            const isEnlarged = image.classList.contains("enlarged");
+
+            if (isEnlarged) {
+                // Reset to original size
+                image.style.transform = "scale(1)";
+                image.classList.remove("enlarged");
+            } else {
+                // Enlarge the image
+                image.style.transform = "scale(2)";
+                image.classList.add("enlarged");
+            }
+        });
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
+    const navLinks = document.querySelector(".nav-links");
+
+    hamburgerMenu.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+});
+
+    </script>
+</body>
+</html>
