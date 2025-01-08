@@ -19,7 +19,10 @@
                 <a href="#projects">Projects</a>
                 <a href="#blog">Blog</a>
                 <a href="#contact">Contact</a>
-                <button id="dark-mode-toggle">🌙</button>
+                <label class="switch" aria-label="Dark mode toggle">
+                    <input type="checkbox" id="dark-mode-toggle">
+                    <span class="slider"></span>
+                  </label>
             </div>
         </div>
     </nav>
@@ -244,7 +247,8 @@
     <footer>
         <p>&copy; 2024 Abu Tayeb. All rights reserved.</p>
     </footer>
-
+    <button class="read-more-btn">Read More</button>
+    <button id="dark-mode-toggle">🌙</button>
     <script src="script.js"></script>
 </body>
 </html>

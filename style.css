@@ -12,7 +12,7 @@
     --background-color: #ffffff;
     --hover-color: #f1f1f1;
     --border-color: #e0e0e0;
-    --accent-color: #4A90E2;
+    --accent-color: #041A40;
 }
 
 body.dark-mode {
@@ -21,7 +21,7 @@ body.dark-mode {
     --background-color: #1A1A1A;
     --hover-color: #2D2D2D;
     --border-color: #333333;
-    --accent-color: #6BB7FF;
+    --accent-color: #061c30;
 }
 
 body {
@@ -29,6 +29,56 @@ body {
     background: var(--background-color);
     line-height: 1.6;
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+/* Define CSS variables */
+:root {
+    --background-color: #ffffff;
+    --text-color: #2D2D2D;
+    --button-background: #4A90E2;
+    --button-text: #ffffff;
+    --border-color: #e0e0e0;
+    --hover-color: #f1f1f1;
+    --accent-color: #4A90E2;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode {
+    --background-color: #1A1A1A;
+    --text-color: #E4E4E4;
+    --button-background: #6BB7FF;
+    --border-color: #333333;
+    --hover-color: #2D2D2D;
+    --accent-color: #6BB7FF;
+}
+
+/* Button Styles */
+button {
+    background-color: var(--button-background);
+    color: var(--button-text);
+}
+
+button:hover {
+    background-color: var(--button-background);
+    color: var(--button-text);
+}
+
+/* Dark Mode Toggle Button */
+#dark-mode-toggle {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Ensure other elements inherit colors */
+* {
+    color: var(--text-color);
 }
 
 /* Hamburger Menu Button */
@@ -392,6 +442,70 @@ footer {
 }
 
 .read-more-btn:hover {
-.read-more-btn:hover {
     opacity: 0.9;
 }
+/* Slider switch styles */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color:#4A90E2;
+    transition: 0.4s;
+    border-radius: 34px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "☀️";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #589dec;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  .slider:after {
+    content: "🌙";
+    position: absolute;
+    right: 4px;
+    bottom: 4px;
+    text-align: center;
+    line-height: 26px;
+    font-size: 14px;
+    color: #fff;
+    opacity: 0;
+  }
+  
+  input:checked + .slider {
+    background-color: #072861;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+    opacity: 0;
+  }
+  
+  input:checked + .slider:after {
+    opacity: 1;
+  }
