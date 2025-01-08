@@ -128,37 +128,62 @@ nav {
     backdrop-filter: blur(5px);
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
-}
-
-.nav-content {
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    nav {
+      background: rgba(0, 0, 0, 0.95);
+    }
+  }
+  
+  .nav-content {
     max-width: 900px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
+  }
+  
+  .logo {
     font-size: 1.2rem;
     font-weight: 600;
     text-decoration: none;
     color: var(--primary-color);
-}
-
-.nav-links {
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .logo {
+      color: white;
+    }
+  }
+  
+  .nav-links {
     display: flex;
     gap: 2rem;
-}
-
-.nav-links a {
+  }
+  
+  .nav-links a {
     text-decoration: none;
     color: var(--secondary-color);
     transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--primary-color);
-}
+  }
+  
+  @media (prefers-color-scheme: dark) {
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.8);
+    }
+    
+    .nav-links a:hover {
+      color: white;
+    }
+  }
+  
+  /* Main Content */
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 6rem 1rem 2rem;
+  }
 
 /* Main Content */
 .container {
@@ -465,7 +490,7 @@ footer {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color:#4A90E2;
+    background-color:wheat;
     transition: 0.4s;
     border-radius: 34px;
   }
@@ -477,13 +502,30 @@ footer {
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: #589dec;
+    background-color: rgb(230, 174, 100);
     text-align: center;
     line-height: 26px;
     font-size: 14px;
     border-radius: 50%;
     transition: 0.4s;
   }
+  .social-link {
+    text-decoration: none;
+    color: #333;  /* Default color - adjust as needed */
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: #0077b5;  /* LinkedIn blue for LinkedIn */
+}
+
+.social-link.github:hover {
+    color: #333;  /* GitHub dark gray */
+}
+
+.social-link i {
+    margin-right: 8px;
+}
   
   .slider:after {
     content: "🌙";
@@ -495,6 +537,14 @@ footer {
     font-size: 14px;
     color: #fff;
     opacity: 0;
+    height: 26px;
+    width: 26px;
+    background-color: #07327b;
+
+    line-height: 26px;
+    font-size: 14px;
+    border-radius: 50%;
+    transition: 0.4s;
   }
   
   input:checked + .slider {
