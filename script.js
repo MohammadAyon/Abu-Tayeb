@@ -12,7 +12,15 @@ const darkModeToggle = document.getElementById('dark-mode-toggle');
 darkModeToggle.addEventListener('change', () => {
   document.body.classList.toggle('dark-mode');
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const videoCards = document.querySelectorAll('.video-card');
 
+    videoCards.forEach((card, index) => {
+        setTimeout(() => {
+            card.classList.add('visible');
+        }, index * 200); // Delay each card by 200ms
+    });
+});
 // Form Submission
 const form = document.querySelector('.contact-form');
 form.addEventListener('submit', (e) => {
@@ -70,4 +78,92 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.video-carousel');
+    const grid = carousel.querySelector('.video-grid');
+    const cards = grid.querySelectorAll('.video-card');
+    const prevBtn = carousel.querySelector('.carousel-button.prev');
+    const nextBtn = carousel.querySelector('.carousel-button.next');
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+
+    let currentIndex = 0;
+    const cardWidth = carousel.offsetWidth;
+    const totalSlides = Math.ceil(cards.length / getCardsPerView());
+
+    // Create dots
+    for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => goToSlide(i));
+        dotsContainer.appendChild(dot);
+    }
+
+    function getCardsPerView() {
+        if (window.innerWidth > 1024) return 3;
+        if (window.innerWidth > 768) return 2;
+        return 1;
+    }
+
+    function updateDots() {
+        const dots = dotsContainer.querySelectorAll('.dot');
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+        });
+    }
+
+    function goToSlide(index) {
+        currentIndex = index;
+        const offset = -index * cardWidth;
+        grid.style.transform = `translateX(${offset}px)`;
+        updateDots();
+    }
+
+    prevBtn.addEventListener('click', () => {
+        if (currentIndex > 0) {
+            goToSlide(currentIndex - 1);
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentIndex < totalSlides - 1) {
+            goToSlide(currentIndex + 1);
+        }
+    });
+
+    // Handle responsive behavior
+    window.addEventListener('resize', () => {
+        const newTotalSlides = Math.ceil(cards.length / getCardsPerView());
+        if (currentIndex >= newTotalSlides) {
+            currentIndex = newTotalSlides - 1;
+            goToSlide(currentIndex);
+        }
+    });
+
+    // Touch events for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    carousel.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+
+    carousel.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0 && currentIndex < totalSlides - 1) {
+                goToSlide(currentIndex + 1);
+            } else if (diff < 0 && currentIndex > 0) {
+                goToSlide(currentIndex - 1);
+            }
+        }
+    }
 });
