@@ -1,169 +1,87 @@
-// Smooth Scrolling
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
-    });
+// ── Nav scroll behavior ──
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 40);
 });
 
-const darkModeToggle = document.getElementById('dark-mode-toggle');
-darkModeToggle.addEventListener('change', () => {
-  document.body.classList.toggle('dark-mode');
+// ── Hamburger menu ──
+const hamburger = document.querySelector('.hamburger');
+const navMobile = document.querySelector('.nav-mobile');
+hamburger?.addEventListener('click', () => {
+  navMobile.classList.toggle('open');
+  const spans = hamburger.querySelectorAll('span');
+  spans[0].style.transform = navMobile.classList.contains('open') ? 'rotate(45deg) translateY(7px)' : '';
+  spans[1].style.opacity  = navMobile.classList.contains('open') ? '0' : '';
+  spans[2].style.transform = navMobile.classList.contains('open') ? 'rotate(-45deg) translateY(-7px)' : '';
 });
-document.addEventListener("DOMContentLoaded", function() {
-    const videoCards = document.querySelectorAll('.video-card');
+navMobile?.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => navMobile.classList.remove('open'));
+});
 
-    videoCards.forEach((card, index) => {
-        setTimeout(() => {
-            card.classList.add('visible');
-        }, index * 200); // Delay each card by 200ms
-    });
-});
-// Form Submission
-const form = document.querySelector('.contact-form');
-form.addEventListener('submit', (e) => {
+// ── Smooth scroll ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
     e.preventDefault();
-    // Add your form submission logic here
-    alert('Message sent! (Demo only)');
-    form.reset();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
 });
 
-// Profile Image Enlarge
-document.addEventListener("DOMContentLoaded", function () {
-    const image = document.querySelector(".profile-image");
-
-    if (image) {
-        image.style.transition = "transform 0.3s ease";
-
-        image.addEventListener("click", function () {
-            const isEnlarged = image.classList.contains("enlarged");
-
-            if (isEnlarged) {
-                image.style.transform = "scale(1)";
-                image.classList.remove("enlarged");
-            } else {
-                image.style.transform = "scale(2)";
-                image.classList.add("enlarged");
-            }
-        });
+// ── Reveal on scroll ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('visible');
+      }, i * 80);
+      revealObserver.unobserve(entry.target);
     }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+// ── Skill bar animation (triggered on scroll) ──
+const skillObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      skillObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+document.querySelectorAll('.skill-group').forEach(el => skillObserver.observe(el));
+
+// ── Contact form ──
+const form = document.getElementById('contactForm');
+form?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const btn = form.querySelector('.btn-submit span');
+  btn.textContent = 'Message sent! ✓';
+  setTimeout(() => { btn.textContent = 'Send Message'; form.reset(); }, 3000);
 });
 
-// Hamburger Menu Toggle
-document.addEventListener("DOMContentLoaded", () => {
-    const hamburgerMenu = document.querySelector(".hamburger-menu");
-    const navLinks = document.querySelector(".nav-links");
+// ── Subtle cursor glow (desktop only) ──
+if (window.matchMedia('(hover: hover)').matches) {
+  const glow = document.createElement('div');
+  glow.style.cssText = `
+    position: fixed; pointer-events: none; z-index: 9999;
+    width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(240,168,50,0.04) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    transition: left 0.1s, top 0.1s;
+  `;
+  document.body.appendChild(glow);
+  document.addEventListener('mousemove', e => {
+    glow.style.left = e.clientX + 'px';
+    glow.style.top  = e.clientY + 'px';
+  });
+}
 
-    hamburgerMenu.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-    });
-});
-
-
-// Read More Button Functionality
-document.addEventListener("DOMContentLoaded", () => {
-    const readMoreButtons = document.querySelectorAll(".read-more-btn");
-
-    readMoreButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            const blogContent = button.previousElementSibling;
-            blogContent.classList.toggle("show");
-
-            if (blogContent.classList.contains("show")) {
-                button.textContent = "Read Less";
-            } else {
-                button.textContent = "Read More";
-            }
-        });
-    });
-});
-document.addEventListener('DOMContentLoaded', () => {
-    const carousel = document.querySelector('.video-carousel');
-    const grid = carousel.querySelector('.video-grid');
-    const cards = grid.querySelectorAll('.video-card');
-    const prevBtn = carousel.querySelector('.carousel-button.prev');
-    const nextBtn = carousel.querySelector('.carousel-button.next');
-    const dotsContainer = carousel.querySelector('.carousel-dots');
-
-    let currentIndex = 0;
-    const cardWidth = carousel.offsetWidth;
-    const totalSlides = Math.ceil(cards.length / getCardsPerView());
-
-    // Create dots
-    for (let i = 0; i < totalSlides; i++) {
-        const dot = document.createElement('div');
-        dot.classList.add('dot');
-        if (i === 0) dot.classList.add('active');
-        dot.addEventListener('click', () => goToSlide(i));
-        dotsContainer.appendChild(dot);
-    }
-
-    function getCardsPerView() {
-        if (window.innerWidth > 1024) return 3;
-        if (window.innerWidth > 768) return 2;
-        return 1;
-    }
-
-    function updateDots() {
-        const dots = dotsContainer.querySelectorAll('.dot');
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('active', i === currentIndex);
-        });
-    }
-
-    function goToSlide(index) {
-        currentIndex = index;
-        const offset = -index * cardWidth;
-        grid.style.transform = `translateX(${offset}px)`;
-        updateDots();
-    }
-
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) {
-            goToSlide(currentIndex - 1);
-        }
-    });
-
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex < totalSlides - 1) {
-            goToSlide(currentIndex + 1);
-        }
-    });
-
-    // Handle responsive behavior
-    window.addEventListener('resize', () => {
-        const newTotalSlides = Math.ceil(cards.length / getCardsPerView());
-        if (currentIndex >= newTotalSlides) {
-            currentIndex = newTotalSlides - 1;
-            goToSlide(currentIndex);
-        }
-    });
-
-    // Touch events for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    carousel.addEventListener('touchstart', (e) => {
-        touchStartX = e.changedTouches[0].screenX;
-    });
-
-    carousel.addEventListener('touchend', (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        const swipeThreshold = 50;
-        const diff = touchStartX - touchEndX;
-
-        if (Math.abs(diff) > swipeThreshold) {
-            if (diff > 0 && currentIndex < totalSlides - 1) {
-                goToSlide(currentIndex + 1);
-            } else if (diff < 0 && currentIndex > 0) {
-                goToSlide(currentIndex - 1);
-            }
-        }
-    }
+// ── Stagger hero reveal on load ──
+window.addEventListener('load', () => {
+  document.querySelectorAll('.hero .reveal').forEach((el, i) => {
+    setTimeout(() => el.classList.add('visible'), 200 + i * 150);
+  });
 });

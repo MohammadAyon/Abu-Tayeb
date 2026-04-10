@@ -1,255 +1,508 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abu Tayeb</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel = "stylesheet" type = "text/css" href = "style.css">
-    <link rel ="s"
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abu Tayeb Mohammad Ayon — Data · AI · Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Syne:wght@400;500;700;800&family=DM+Mono:wght@300;400;500&family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-content">
-            <a href="#" class="logo">AYON</a>
-            <button class="hamburger-menu" aria-label="Toggle Navigation">☰</button>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#blog">Blog</a>
-                <a href="#contact">Contact</a>
-                <label class="switch" aria-label="Dark mode toggle">
-                    <input type="checkbox" id="dark-mode-toggle">
-                    <span class="slider"></span>
-                  </label>
-            </div>
-        </div>
-    </nav>
 
-    <div class="container">
-        <!-- Hero Section -->
-        <section class="hero">
-            <img src="images/ayon dp.jpg" alt="Your Profile" class="profile-image">
-            <div class="hero-content">
-                <h1 class="hero-title">Abu Tayeb Mohammad Ayon</h1>
-                <p class="hero-subtitle">Computer Science Student. Researcher. Developer.</p>
-                <p>Passionate about creating innovative solutions through technology and research.</p>
-                <div class="hero-contact">
-                    <p><i class="fas fa-envelope"></i> mohammadayon2838@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +880 1620-570-5653</p>
-                    <p>
-                        <a href="https://www.linkedin.com/in/abu-tayeb-844644213/" target="_blank" rel="noopener noreferrer" class="social-link linkedin">
-                            <i class="fab fa-linkedin"></i> Mohammad Ayon
-                        </a>
-                    </p>
-                    <p>
-                        <a href="https://github.com/MohammadAyon" target="_blank" rel="noopener noreferrer" class="social-link github">
-                            <i class="fab fa-github"></i> MohammadAyon
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </section>
+  <!-- Ambient Background -->
+  <div class="ambient-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+    <div class="noise-overlay"></div>
+  </div>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2 class="section-title">About</h2>
-            <p>I'm a Computer Science & Engineering student at North South University with a strong foundation in research and development. As a Research Assistant at NSU DIAL Lab, I've gained valuable experience in qualitative research and data analysis. My work combines academic excellence with practical implementation, focusing on innovative solutions in machine learning, mobile development, and IoT.</p>
-            
-            <div class="education">
-                <h3>Education</h3>
-                <div class="education-item">
-                    <strong>North South University</strong>
-                    <p>B.Sc. in Computer Science & Engineering (2020 - 2024)</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="skill-content">
-                        <h3>Programming Languages</h3>
-                        <p>C++, C, Java, Python, JavaScript, ARMv7 Assembly, Kotlin</p>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="skill-content">
-                        <h3>Web Technologies</h3>
-                        <p>HTML, CSS, Bootstrap, PHP, Firebase</p>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
-                    <div class="skill-content">
-                        <h3>Databases</h3>
-                        <p>MySQL, Oracle, Microsoft SQL Server</p>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-icon">
-                        <i class="fas fa-brain"></i>
-                    </div>
-                    <div class="skill-content">
-                        <h3>Frameworks & Libraries</h3>
-                        <p>JavaFX, NumPy, PyTorch, Flask</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2 class="section-title">Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="images/skin cancer.png" alt="Skin Cancer Classification" class="project-img">
-                    <div class="project-content">
-                        <h3>Skin Cancer Classification</h3>
-                        <p>Developed a lightweight pruned DCNN with XAI achieving 98.07% accuracy on the HAM10000 dataset. Enhanced speed, efficiency, and interpretability compared to state-of-the-art models.</p>
-                        <div class="project-tags">
-                            <span>PyTorch</span>
-                            <span>Deep Learning</span>
-                            <span>XAI</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <a href="https://github.com/MohammadAyon/Adda.git" target="_blank" style="text-decoration: none; color: inherit;">
-                        <img src="images/adda.png" alt="Adda Dei" class="project-img">
-                        <div class="project-content">
-                            <h3>Adda Dei</h3>
-                            <p>Android-based social networking application for NSU students featuring real-time chat functionality, Google authentication, and active user status tracking.</p>
-                            <div class="project-tags">
-                                <span>Kotlin</span>
-                                <span>Firebase</span>
-                                <span>Figma</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                
-                <div class="project-card">
-                    <img src="images/Iot.png" alt="Smart Waste Management" class="project-img">
-                    <div class="project-content">
-                        <h3>IoT-Based Smart Waste Management</h3>
-                        <p>Engineered an STM32-based system with environmental sensors for real-time waste level monitoring and OLED display integration.</p>
-                        <div class="project-tags">
-                            <span>IoT</span>
-                            <span>STM32</span>
-                            <span>Embedded Systems</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <a href="https://github.com/MohammadAyon/Bonoful-cinema-hall.git" target="_blank" style="text-decoration: none; color: inherit;">
-                        <img src="images/cinema.png" alt="Bonoful Cinema Hall" class="project-img">
-                        <div class="project-content">
-                            <h3>Bonoful Cinema Hall</h3>
-                            <p>A real-time Bangla Cinema Ticket booking Management System that reserves tickets</p>
-                            <div class="project-tags">
-                                <span>HTML, CSS, JS</span>
-                                <span>PHP</span>
-                                <span>MySQL</span>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="blog">
-            <h2 class="section-title">Blog</h2>
-            <div class="blog-post">
-                <h3 class="blog-title">Research at NSU DIAL Lab</h3>
-                <p class="blog-excerpt">Exploring my experience as a Research Assistant at the Design Inclusion and Access Lab, working on qualitative research and alternative credit scoring systems...</p>
-                <div class="blog-full-content">
-                    <p>During my time at the NSU DIAL Lab, I had the opportunity to work on several groundbreaking projects. One of the most notable was the development of an alternative credit scoring system that leverages non-traditional data sources to provide financial inclusion for underserved populations. This project involved extensive qualitative research, including interviews and focus groups, to understand the financial behaviors and needs of low-income individuals.</p>
-                    <p>Additionally, I collaborated with a multidisciplinary team to design and implement a user-friendly interface for the credit scoring system. This experience not only honed my technical skills but also deepened my understanding of the social impact of technology.</p>
-                </div>
-                <button class="read-more-btn">Read More</button>
-            </div>
-            <div class="blog-post">
-                <h3 class="blog-title">Deep Learning in Medical Imaging</h3>
-                <p class="blog-excerpt">Discussing the development and implementation of our lightweight DCNN model for skin cancer classification...</p>
-                <div class="blog-full-content">
-                    <p>Our lightweight Deep Convolutional Neural Network (DCNN) model was designed to address the challenges of skin cancer classification. By pruning the network and incorporating Explainable AI (XAI) techniques, we achieved an accuracy of 98.07% on the HAM10000 dataset. This model not only outperformed state-of-the-art models in terms of accuracy but also significantly reduced computational complexity, making it suitable for deployment on resource-constrained devices.</p>
-                    <p>The development process involved extensive experimentation with various architectures and hyperparameters. We also conducted a thorough analysis of the model's interpretability, ensuring that medical professionals could trust and understand the predictions made by the model.</p>
-                </div>
-                <button class="read-more-btn">Read More</button>
-            </div>
-        </section>
-
-     <!-- Video Gallery -->
-     <section id="videos">
-        <h2 class="section-title">Video Gallery</h2>
-        <div class="video-carousel">
-            <button class="carousel-button prev">←</button>
-            <button class="carousel-button next">→</button>
-            <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/VTcljVyb3y8" title="YouTube Shorts Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Video Title 1</h3>
-                        <p class="video-description">Brief description of the video content</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/5hreqp8VNAw" title="Public Speaking Course Group Presentation" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Procrastination</h3>
-                        <p class="video-description">It was group project video for our ENG111 public Speaking Course</p>
-                    </div>
-                </div>
-                <div class="video-card">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/0scLfvS3d_w" title="Bonoful Cinema Hall" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3 class="video-title">Bonoful Cinema Hall</h3>
-                        <p class="video-description">Build a simple cinema booking system for classic Bangla movies</p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-dots"></div>
-        </div>
-    </section>
-
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2 class="section-title">Contact</h2>
-            <form class="contact-form">
-                <input type="text" placeholder="Name" required>
-                <input type="email" placeholder="Email" required>
-                <textarea placeholder="Message" rows="4" required></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </section>
+  <!-- Navigation -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="logo-bengali">আয়ন</span>
+        <span class="logo-dot">·</span>
+        <span class="logo-en">AYON</span>
+      </a>
+      <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>
+        <a href="#work" class="nav-link">Work</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      <button class="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+    <div class="nav-mobile">
+      <a href="#about">About</a>
+      <a href="#work">Work</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-    <footer>
-        <p>&copy; 2024 Abu Tayeb. All rights reserved.</p>
-    </footer>
-<<<<<<< HEAD
-    
-=======
-  
->>>>>>> c7f9de10bd9c99bf220b85ef2b4a7979035cc015
-    <script src="script.js"></script>
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow reveal">
+          <span class="eyebrow-line"></span>
+          <span>Dhaka, Bangladesh</span>
+          <span class="eyebrow-dot">◆</span>
+          <span>CSE Graduate · NSU</span>
+        </div>
+        <h1 class="hero-name reveal">
+          <span class="name-first">Abu Tayeb</span>
+          <br>
+          <span class="name-last">Mohammad <em>Ayon</em></span>
+        </h1>
+        <p class="hero-tagline reveal">
+          Data Analyst · AI Automation Builder · Researcher
+        </p>
+        <p class="hero-quote reveal">
+          <span class="quote-mark">"</span>
+          Turning raw data into insight,<br>and insight into action.
+          <span class="quote-mark">"</span>
+        </p>
+        <div class="hero-ctas reveal">
+          <a href="#projects" class="btn-primary">View My Work</a>
+          <a href="#contact" class="btn-ghost">Get In Touch</a>
+        </div>
+        <div class="hero-social reveal">
+          <a href="https://www.linkedin.com/in/abu-tayeb-844644213/" target="_blank" class="social-ico">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="https://github.com/MohammadAyon" target="_blank" class="social-ico">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:abutayeb.ma2838@gmail.com" class="social-ico">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-right reveal">
+        <div class="photo-frame">
+          <div class="photo-border"></div>
+          <img src="images/ayon dp.jpg" alt="Abu Tayeb Mohammad Ayon" class="hero-photo">
+          <div class="photo-accent"></div>
+          <div class="photo-tag">
+            <span>Open to</span>
+            <strong>Opportunities</strong>
+          </div>
+        </div>
+        <div class="floating-cert">
+          <i class="fas fa-certificate"></i>
+          <span>Anthropic Certified</span>
+        </div>
+        <div class="floating-accuracy">
+          <span class="acc-number">98.07</span>
+          <span class="acc-label">% ML Accuracy</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="section-wrap">
+      <div class="section-label">
+        <span class="label-num">01</span>
+        <span class="label-text">About</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-bio reveal">
+          <h2 class="section-heading">
+            Building at the intersection of<br>
+            <em>data, AI, and human meaning.</em>
+          </h2>
+          <p>I'm a Computer Science graduate from North South University, Dhaka — with 9 months of research experience at the <strong>Design, Inclusion & Access Lab (DIAL)</strong>. I work where data meets decision-making: SQL, Python, AI agents, and automation workflows.</p>
+          <p>Beyond the screen, I'm drawn to Stoic, Taoist, and Buddhist philosophy, Bengali poetry, and the quiet discipline of doing hard things well. I believe the best technology, like good writing, is invisible — it just works.</p>
+          <p>Currently building AI agent workflows and targeting roles in <strong>data analysis, business analysis, and AI automation</strong>. Anthropic-certified in AI Fluency and Agent Skills.</p>
+        </div>
+        <div class="about-sidebar">
+          <div class="info-card reveal">
+            <h4>Education</h4>
+            <div class="info-item">
+              <strong>B.Sc. Computer Science & Engineering</strong>
+              <span>North South University · 2020–2024</span>
+            </div>
+          </div>
+          <div class="info-card reveal">
+            <h4>Certifications</h4>
+            <div class="cert-list">
+              <div class="cert-item">
+                <i class="fas fa-robot"></i>
+                <span>AI Fluency — Anthropic</span>
+              </div>
+              <div class="cert-item">
+                <i class="fas fa-network-wired"></i>
+                <span>Agent Skills — Anthropic</span>
+              </div>
+            </div>
+          </div>
+          <div class="info-card reveal">
+            <h4>Currently Learning</h4>
+            <div class="learning-tags">
+              <span>SQL</span>
+              <span>Retool</span>
+              <span>n8n</span>
+              <span>LangChain</span>
+              <span>MCP</span>
+              <span>Claude API</span>
+            </div>
+          </div>
+          <div class="philosophy-quote reveal">
+            <span class="bengali-script">সংযমে শক্তি।</span>
+            <span class="bengali-trans">Strength in restraint.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="skills" id="skills">
+    <div class="section-wrap">
+      <div class="section-label">
+        <span class="label-num">02</span>
+        <span class="label-text">Skills</span>
+      </div>
+      <h2 class="section-heading reveal">The tools of my craft</h2>
+      <div class="skills-matrix">
+        <div class="skill-group reveal">
+          <div class="skill-group-icon"><i class="fas fa-database"></i></div>
+          <h3>Data & Analysis</h3>
+          <ul>
+            <li>SQL <span class="skill-bar"><span style="width:80%"></span></span></li>
+            <li>Python <span class="skill-bar"><span style="width:75%"></span></span></li>
+            <li>NumPy · Pandas <span class="skill-bar"><span style="width:70%"></span></span></li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <div class="skill-group-icon"><i class="fas fa-robot"></i></div>
+          <h3>AI & Automation</h3>
+          <ul>
+            <li>Claude API <span class="skill-bar"><span style="width:85%"></span></span></li>
+            <li>LangChain / n8n <span class="skill-bar"><span style="width:65%"></span></span></li>
+            <li>PyTorch · Deep Learning <span class="skill-bar"><span style="width:72%"></span></span></li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <div class="skill-group-icon"><i class="fas fa-code"></i></div>
+          <h3>Development</h3>
+          <ul>
+            <li>Python · Java · C++ <span class="skill-bar"><span style="width:80%"></span></span></li>
+            <li>HTML · CSS · JS <span class="skill-bar"><span style="width:78%"></span></span></li>
+            <li>Kotlin · Firebase <span class="skill-bar"><span style="width:65%"></span></span></li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <div class="skill-group-icon"><i class="fas fa-microscope"></i></div>
+          <h3>Research</h3>
+          <ul>
+            <li>Qualitative Methods <span class="skill-bar"><span style="width:82%"></span></span></li>
+            <li>Data Analysis <span class="skill-bar"><span style="width:78%"></span></span></li>
+            <li>XAI · Model Eval <span class="skill-bar"><span style="width:70%"></span></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work / Experience -->
+  <section class="work" id="work">
+    <div class="section-wrap">
+      <div class="section-label">
+        <span class="label-num">03</span>
+        <span class="label-text">Experience</span>
+      </div>
+      <h2 class="section-heading reveal">Where I've made an impact</h2>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-meta">
+              <span class="tl-date">2023 – 2024</span>
+              <span class="tl-type">Research</span>
+            </div>
+            <h3>Research Assistant</h3>
+            <h4>NSU Design, Inclusion & Access Lab (DIAL)</h4>
+            <p>Conducted qualitative research on alternative credit scoring systems to expand financial inclusion for underserved populations in Bangladesh. Led focus groups, designed interview frameworks, and analyzed behavioral data to surface actionable insights for system design.</p>
+            <div class="tl-tags">
+              <span>Qualitative Research</span>
+              <span>Data Analysis</span>
+              <span>Financial Inclusion</span>
+              <span>UX Research</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="timeline-meta">
+              <span class="tl-date">2024</span>
+              <span class="tl-type">Freelance</span>
+            </div>
+            <h3>AI Agent Developer</h3>
+            <h4>Independent · Building & Selling Workflows</h4>
+            <p>Designing and deploying AI automation workflows using Claude API, n8n, and LangChain. Building SaaS-style agent products for business automation, distributed via Gumroad and direct client outreach.</p>
+            <div class="tl-tags">
+              <span>Claude API</span>
+              <span>n8n</span>
+              <span>LangChain</span>
+              <span>AI Automation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects" id="projects">
+    <div class="section-wrap">
+      <div class="section-label">
+        <span class="label-num">04</span>
+        <span class="label-text">Projects</span>
+      </div>
+      <h2 class="section-heading reveal">Things I've built</h2>
+      <div class="projects-grid">
+
+        <!-- Featured: Skin Cancer -->
+        <div class="project-card project-featured reveal">
+          <div class="project-img-wrap">
+            <img src="images/skin cancer.png" alt="Skin Cancer Classification" class="project-img">
+            <div class="project-img-overlay">
+              <span>Deep Learning · XAI</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">ML Research</span>
+              <span class="project-year">2024</span>
+            </div>
+            <h3>Skin Cancer Classification</h3>
+            <p>Lightweight pruned DCNN with Explainable AI achieving <strong>98.07% accuracy</strong> on HAM10000. Outperformed SOTA models in both accuracy and interpretability — designed for deployment on resource-constrained clinical devices.</p>
+            <div class="project-tags">
+              <span>PyTorch</span>
+              <span>Deep Learning</span>
+              <span>XAI</span>
+              <span>Medical AI</span>
+            </div>
+            <div class="project-stat">
+              <span class="stat-num">98.07%</span>
+              <span class="stat-label">Classification Accuracy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adda -->
+        <a href="https://github.com/MohammadAyon/Adda.git" target="_blank" class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="images/adda.png" alt="Adda Dei" class="project-img">
+            <div class="project-img-overlay">
+              <span>Android · Social</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">Mobile App</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3>Adda Dei</h3>
+            <p>Social networking app for NSU students — real-time chat, Google authentication, and live user presence. Built natively for the Bengali campus community.</p>
+            <div class="project-tags">
+              <span>Kotlin</span>
+              <span>Firebase</span>
+              <span>Figma</span>
+            </div>
+            <div class="project-link-hint">
+              <i class="fab fa-github"></i> View on GitHub →
+            </div>
+          </div>
+        </a>
+
+        <!-- IoT -->
+        <div class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="images/Iot.png" alt="Smart Waste Management" class="project-img">
+            <div class="project-img-overlay">
+              <span>IoT · Embedded</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">Embedded Systems</span>
+              <span class="project-year">2023</span>
+            </div>
+            <h3>Smart Waste Management</h3>
+            <p>STM32-based IoT system with environmental sensors for real-time waste level monitoring. OLED display integration and sensor fusion for smart city infrastructure.</p>
+            <div class="project-tags">
+              <span>STM32</span>
+              <span>IoT</span>
+              <span>C</span>
+              <span>Embedded</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cinema -->
+        <a href="https://github.com/MohammadAyon/Bonoful-cinema-hall.git" target="_blank" class="project-card reveal">
+          <div class="project-img-wrap">
+            <img src="images/cinema.png" alt="Bonoful Cinema Hall" class="project-img">
+            <div class="project-img-overlay">
+              <span>Web · Full Stack</span>
+            </div>
+          </div>
+          <div class="project-body">
+            <div class="project-meta">
+              <span class="project-type">Web App</span>
+              <span class="project-year">2022</span>
+            </div>
+            <h3>Bonoful Cinema Hall</h3>
+            <p>Real-time Bangla cinema ticket booking system with seat reservation, payment tracking, and admin dashboard. Built for classic Bangladeshi films.</p>
+            <div class="project-tags">
+              <span>PHP</span>
+              <span>MySQL</span>
+              <span>HTML/CSS</span>
+            </div>
+            <div class="project-link-hint">
+              <i class="fab fa-github"></i> View on GitHub →
+            </div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Videos -->
+  <section class="videos" id="videos">
+    <div class="section-wrap">
+      <div class="section-label">
+        <span class="label-num">05</span>
+        <span class="label-text">Videos</span>
+      </div>
+      <h2 class="section-heading reveal">On screen</h2>
+      <div class="video-row">
+        <div class="video-tile reveal">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/VTcljVyb3y8" title="Video 1" allowfullscreen></iframe>
+          </div>
+          <p class="video-label">Project Showcase</p>
+        </div>
+        <div class="video-tile reveal">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/5hreqp8VNAw" title="Procrastination" allowfullscreen></iframe>
+          </div>
+          <p class="video-label">Procrastination — ENG111 Public Speaking</p>
+        </div>
+        <div class="video-tile reveal">
+          <div class="video-wrap">
+            <iframe src="https://www.youtube.com/embed/0scLfvS3d_w" title="Bonoful Cinema" allowfullscreen></iframe>
+          </div>
+          <p class="video-label">Bonoful Cinema Hall Demo</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy Strip -->
+  <section class="philosophy-strip">
+    <div class="strip-inner">
+      <div class="strip-quote reveal">
+        <span class="strip-bengali">যে পথ কঠিন, সেই পথেই আলো।</span>
+        <span class="strip-eng">The difficult path leads to light.</span>
+      </div>
+      <div class="strip-icons">
+        <span title="Stoicism">⚖️</span>
+        <span title="Taoism">☯️</span>
+        <span title="Buddhism">🪷</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="section-wrap">
+      <div class="section-label">
+        <span class="label-num">06</span>
+        <span class="label-text">Contact</span>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-left reveal">
+          <h2 class="section-heading">Let's build<br><em>something real.</em></h2>
+          <p>Open to data analyst, business analyst, and AI automation roles. Also interested in freelance AI agent projects and research collaborations.</p>
+          <div class="contact-info">
+            <a href="mailto:abutayeb.ma2838@gmail.com" class="contact-line">
+              <i class="fas fa-envelope"></i>
+              <span>abutayeb.ma2838@gmail.com</span>
+            </a>
+            <a href="tel:+8801620570653" class="contact-line">
+              <i class="fas fa-phone"></i>
+              <span>+880 1620-570-653</span>
+            </a>
+            <a href="https://www.linkedin.com/in/abu-tayeb-844644213/" target="_blank" class="contact-line">
+              <i class="fab fa-linkedin"></i>
+              <span>Mohammad Ayon</span>
+            </a>
+            <a href="https://github.com/MohammadAyon" target="_blank" class="contact-line">
+              <i class="fab fa-github"></i>
+              <span>MohammadAyon</span>
+            </a>
+          </div>
+        </div>
+        <div class="contact-right reveal">
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" placeholder="What should I call you?" required>
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea rows="5" placeholder="Tell me what you're thinking..." required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-left">
+        <span class="footer-logo">আয়ন · AYON</span>
+        <span class="footer-copy">© 2024 Abu Tayeb Mohammad Ayon</span>
+      </div>
+      <div class="footer-center">
+        <span class="footer-phrase">Built with intention. Rooted in Dhaka.</span>
+      </div>
+      <div class="footer-right">
+        <a href="https://github.com/MohammadAyon" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/abu-tayeb-844644213/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:abutayeb.ma2838@gmail.com"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
