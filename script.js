@@ -21,3 +21,26 @@ if (navToggle && navMobile) {
 // Footer year
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+// Cursor sparkle trail — playful, throttled, and off for
+// reduced-motion or touch-only devices.
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const isTouchDevice = window.matchMedia('(hover: none)').matches;
+const marks = ['✦', '★', '⚡', '✧'];
+
+if (!prefersReducedMotion && !isTouchDevice) {
+  let lastSpark = 0;
+  document.addEventListener('mousemove', (e) => {
+    const now = Date.now();
+    if (now - lastSpark < 90) return; // throttle
+    lastSpark = now;
+
+    const el = document.createElement('span');
+    el.className = 'sparkle';
+    el.textContent = marks[Math.floor(Math.random() * marks.length)];
+    el.style.left = e.clientX + 'px';
+    el.style.top = e.clientY + 'px';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 700);
+  });
+}
